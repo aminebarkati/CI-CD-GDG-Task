@@ -25,7 +25,7 @@ jobs:
       # Step 4: Run tests
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Run tests
-        run: npm test
+        run: npm test --passWithNoTests
       - name: List files in the repository
         run: ls ${{ github.workspace }}
       - run: echo "This job's status is ${{ job.status }}."

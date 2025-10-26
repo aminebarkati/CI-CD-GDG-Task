@@ -11,18 +11,16 @@ Le pipeline exécute automatiquement les étapes suivantes :
 
 ## 📁 Structure du projet
 
-.github/
-└── workflows/
-└── main.yaml # Pipeline CI/CD (build, test, deploy)
-
-docs/
-├── architecture.md # Description du projet et de l’architecture
-├── repartition.md # Répartition des tâches de l’équipe
-├── outils.md # Outils et environnements utilisés
-└── captures/ # Captures ou logs du prototype
-
-src/ # Code source de l’application
-package.json
-package-lock.json
-build/ # Résultat du build (automatique)
-README.md
+- .github/
+  - workflows/
+    - main.yaml        # Pipeline CI/CD (build, test, deploy)
+- docs/
+  - architecture.md    # Description du projet et de l’architecture
+  - repartition.md     # Répartition des tâches de l’équipe
+  - outils.md          # Outils et environnements utilisés
+  - captures/          # Captures ou logs du prototype
+- src/                 # Code source de l’application
+- package.json
+- package-lock.json
+- build/               # Résultat du build (automatique)
+- README.md

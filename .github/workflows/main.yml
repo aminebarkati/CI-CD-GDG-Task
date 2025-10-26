@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
@@ -21,20 +21,25 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install 
+
       # Step 4: Build
       - name: Build project
         run: npm run build  
-      # Step 5: Run tests
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Run tests
         run: npm test -- --passWithNoTests
-      
-      # Step 6: deploy
-      - name: Deploy application
-        run: |
-          echo "Deploying application..."
-          npm install -g serve
-          serve -s build
-      - name: List files in the repository
-        run: ls ${{ github.workspace }}
-      - run: echo "This job's status is ${{ job.status }}."
+  
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

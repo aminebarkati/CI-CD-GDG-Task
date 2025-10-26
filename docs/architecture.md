@@ -1,6 +1,7 @@
-⚙️ Étapes principales du pipeline
+## Étapes principales du pipeline
 
-1️⃣ Build
+
+# 1️⃣ Build
 
 Vérifie le code avec actions/checkout
 
@@ -10,13 +11,13 @@ Compile le projet avec npm run build
 
 Génère un artefact (./build) pour déploiement
 
-2️⃣ Test
+# 2️⃣ Test
 
 Exécute npm test -- --passWithNoTests
 
 Vérifie que le build est correct avant déploiement
 
-3️⃣ Déploiement
+# 3️⃣ Déploiement
 
 Utilise actions/deploy-pages@v4
 

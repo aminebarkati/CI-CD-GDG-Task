@@ -1,4 +1,4 @@
-Outils et environnements utilisés
+## Outils et environnements utilisés
 
 | Outil / Technologie | Rôle                                     |
 | ------------------- | ---------------------------------------- |

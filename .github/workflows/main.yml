@@ -21,11 +21,20 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install 
-
-      # Step 4: Run tests
+      # Step 4: Build
+      - name: Build project
+        run: npm run build  
+      # Step 5: Run tests
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Run tests
         run: npm test -- --passWithNoTests
+      
+      # Step 6: deploy
+      - name: Deploy application
+        run: |
+          echo "Deploying application..."
+          npm install -g serve
+          serve -s build
       - name: List files in the repository
         run: ls ${{ github.workspace }}
       - run: echo "This job's status is ${{ job.status }}."

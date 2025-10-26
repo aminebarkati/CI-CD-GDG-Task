@@ -24,7 +24,11 @@ jobs:
 
       # Step 4: Build
       - name: Build project
-        run: npm run build  
+        run: npm run build
+      - name: Upload build output
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build   
 
   test:
     runs-on: ubuntu-latest
